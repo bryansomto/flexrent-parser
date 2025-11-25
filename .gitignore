@@ -1,20 +1,24 @@
-# 1. Virtual Environment (Huge folder, never upload this)
+# Virtual Environment (Huge folder, never upload this)
 .venv/
 venv/
 env/
 
-# 2. Python Cache (Junk files)
+# Python Cache (Junk files)
 __pycache__/
 *.py[cod]
 *$py.class
 
-# 3. Environment Variables (Sensitive keys)
+# Environment Variables (Sensitive keys)
 .env
 .env.local
 
-# 4. VS Code Settings (Personal preferences)
+# VS Code Settings (Personal preferences)
 .vscode/
 
 # 5. OS Junk
 .DS_Store
 Thumbs.db
+
+# test files and documents
+audit/
+testBankStatements/
