@@ -22,16 +22,16 @@ async def analyze_statement(
     if file.content_type != "application/pdf":
         raise HTTPException(400, "File must be a PDF")
     
-    # 1. Save file temporarily
+    # Save file temporarily
     temp_filename = f"temp_{file.filename}"
     with open(temp_filename, "wb") as buffer:
         shutil.copyfileobj(file.file, buffer)
     
     try:
-        # 2. Run Parser (Pass the PASSWORD here) 👇
+        # Run Parser (Pass the PASSWORD here)
         transactions, totals = parse_pdf(temp_filename, password=password)
         
-        # 3. Extract Data
+        # Extract Data
         calculated_income = totals["total_credit"]
         stated_deposit_total = totals["summary_match"]
         salary = totals["salary_estimate"]
@@ -52,7 +52,7 @@ async def analyze_statement(
             # Fallback if no summary found
             final_income = calculated_income
             summary_status = "Calculated from Rows"
-            
+
         return {
             "filename": file.filename,
             "total_income": final_income,
